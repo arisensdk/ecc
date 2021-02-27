@@ -1,5 +1,5 @@
-[![NPM](https://img.shields.io/npm/v/eosjs-ecc.svg)](https://www.npmjs.org/package/eosjs-ecc)
-[![Build Status](https://travis-ci.org/EOSIO/eosjs-ecc.svg?branch=master)](https://travis-ci.org/EOSIO/eosjs-ecc)
+[![NPM](https://img.shields.io/npm/v/@arisensdk/ecc.svg)](https://www.npmjs.org/package/@arisensdk/ecc)
+[![Build Status](https://travis-ci.org/arisensdk/ecc.svg?branch=master)](https://travis-ci.org/arisensdk/ecc)
 
 # Elliptic curve cryptography functions (ECC)
 
@@ -8,32 +8,32 @@ Private Key, Public Key, Signature, AES, Encryption / Decryption
 # Import
 
 ```js
-import ecc from 'eosjs-ecc'
+import ecc from '@arisensdk/ecc'
 // or
-const ecc = require('eosjs-ecc')
+const ecc = require('@arisensdk/ecc')
 ```
 
 # Include
 
--   Install with: `yarn add eosjs-ecc`
--   Html script tag, see [releases](https://github.com/EOSIO/eosjs-ecc/releases) for the correct **version** and its matching script **integrity** hash.
+-   Install with: `yarn add @arisensdk/ecc`
+-   Html script tag, see [releases](https://github.com/arisensdk/ecc/releases) for the correct **version** and its matching script **integrity** hash.
 
 ```html
 <html>
 <head>
   <meta charset="utf-8">
   <!--
-  sha512-cL+IQQaQ586s9DrXfGtDheRpj5iDKh2M+xlpfwbhNjRIp4BGQ1fkM/vB4Ta8mc+f51YBW9sJiPcyMDIreJe6gQ== lib/eosjs-ecc.js
-  sha512-dYFDmK/d9r3/NCp6toLtfkwOjSMRBaEzaGAx1tfRItC0nsI0hVLERk05iNBQR7uDNI7ludYhcBI4vUiFHdjsTQ== lib/eosjs-ecc.min.js
-  sha512-eq1SCoSe38uR1UVuQMwR73VgY8qKTBDc87n2nIiC5WLhn1o2y1U6c5wY8lrigVX7INM8fM0PxDlMX5WvpghKig== lib/eosjs-ecc.min.js.map
+  sha512-cL+IQQaQ586s9DrXfGtDheRpj5iDKh2M+xlpfwbhNjRIp4BGQ1fkM/vB4Ta8mc+f51YBW9sJiPcyMDIreJe6gQ== lib/arisensdk-ecc.js
+  sha512-dYFDmK/d9r3/NCp6toLtfkwOjSMRBaEzaGAx1tfRItC0nsI0hVLERk05iNBQR7uDNI7ludYhcBI4vUiFHdjsTQ== lib/arisensdk-ecc.min.js
+  sha512-eq1SCoSe38uR1UVuQMwR73VgY8qKTBDc87n2nIiC5WLhn1o2y1U6c5wY8lrigVX7INM8fM0PxDlMX5WvpghKig== lib/arisensdk-ecc.min.js.map
   -->
-  <script src="https://cdn.jsdelivr.net/npm/eosjs-ecc@4.0.4/lib/eosjs-ecc.min.js"
+  <script src="https://cdn.jsdelivr.net/npm/@arisensdk/ecc@1.0.0/lib/arisensdk-ecc.min.js"
     integrity="sha512-dYFDmK/d9r3/NCp6toLtfkwOjSMRBaEzaGAx1tfRItC0nsI0hVLERk05iNBQR7uDNI7ludYhcBI4vUiFHdjsTQ=="
     crossorigin="anonymous"></script>
 
 </head>
 <body>
-  See console object: eosjs_ecc
+  See console object: arisensdk_ecc
 </body>
 </html>
 ```
@@ -44,42 +44,49 @@ const ecc = require('eosjs-ecc')
 
 ### Table of Contents
 
--   [wif](#wif)
--   [ecc](#ecc)
-    -   [initialize](#initialize)
-    -   [unsafeRandomKey](#unsaferandomkey)
-    -   [randomKey](#randomkey)
-        -   [Parameters](#parameters)
-        -   [Examples](#examples)
-    -   [seedPrivate](#seedprivate)
-        -   [Parameters](#parameters-1)
-        -   [Examples](#examples-1)
-    -   [privateToPublic](#privatetopublic)
-        -   [Parameters](#parameters-2)
-        -   [Examples](#examples-2)
-    -   [isValidPublic](#isvalidpublic)
-        -   [Parameters](#parameters-3)
-        -   [Examples](#examples-3)
-    -   [isValidPrivate](#isvalidprivate)
-        -   [Parameters](#parameters-4)
-        -   [Examples](#examples-4)
-    -   [sign](#sign)
-        -   [Parameters](#parameters-5)
-        -   [Examples](#examples-5)
-    -   [signHash](#signhash)
-        -   [Parameters](#parameters-6)
-    -   [verify](#verify)
-        -   [Parameters](#parameters-7)
-        -   [Examples](#examples-6)
-    -   [recover](#recover)
-        -   [Parameters](#parameters-8)
-        -   [Examples](#examples-7)
-    -   [recoverHash](#recoverhash)
-        -   [Parameters](#parameters-9)
-    -   [sha256](#sha256)
-        -   [Parameters](#parameters-10)
-        -   [Examples](#examples-8)
--   [pubkey](#pubkey)
+- [Elliptic curve cryptography functions (ECC)](#elliptic-curve-cryptography-functions-ecc)
+- [Import](#import)
+- [Include](#include)
+- [Common API](#common-api)
+    - [Table of Contents](#table-of-contents)
+  - [wif](#wif)
+  - [ecc](#ecc)
+    - [initialize](#initialize)
+    - [unsafeRandomKey](#unsaferandomkey)
+    - [randomKey](#randomkey)
+      - [Parameters](#parameters)
+      - [Examples](#examples)
+    - [seedPrivate](#seedprivate)
+      - [Parameters](#parameters-1)
+      - [Examples](#examples-1)
+    - [privateToPublic](#privatetopublic)
+      - [Parameters](#parameters-2)
+      - [Examples](#examples-2)
+    - [isValidPublic](#isvalidpublic)
+      - [Parameters](#parameters-3)
+      - [Examples](#examples-3)
+    - [isValidPrivate](#isvalidprivate)
+      - [Parameters](#parameters-4)
+      - [Examples](#examples-4)
+    - [sign](#sign)
+      - [Parameters](#parameters-5)
+      - [Examples](#examples-5)
+    - [signHash](#signhash)
+      - [Parameters](#parameters-6)
+    - [verify](#verify)
+      - [Parameters](#parameters-7)
+      - [Examples](#examples-6)
+    - [recover](#recover)
+      - [Parameters](#parameters-8)
+      - [Examples](#examples-7)
+    - [recoverHash](#recoverhash)
+      - [Parameters](#parameters-9)
+    - [sha256](#sha256)
+      - [Parameters](#parameters-10)
+      - [Examples](#examples-8)
+  - [pubkey](#pubkey)
+- [Usage (Object API)](#usage-object-api)
+- [Browser](#browser)
 
 ## wif
 
@@ -118,7 +125,7 @@ Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 ```javascript
 ecc.randomKey().then(privateKey => {
 console.log('Private Key:\t', privateKey) // wif
-console.log('Public Key:\t', ecc.privateToPublic(privateKey)) // EOSkey...
+console.log('Public Key:\t', ecc.privateToPublic(privateKey)) // RSNkey...
 })
 ```
 
@@ -145,7 +152,7 @@ Returns **[wif](#wif)**
 #### Parameters
 
 -   `wif` **[wif](#wif)** 
--   `pubkey_prefix` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** public key prefix (optional, default `'EOS'`)
+-   `pubkey_prefix` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** public key prefix (optional, default `'RSN'`)
 
 #### Examples
 
@@ -159,8 +166,8 @@ Returns **[pubkey](#pubkey)**
 
 #### Parameters
 
--   `pubkey` **[pubkey](#pubkey)** like EOSKey..
--   `pubkey_prefix` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**  (optional, default `'EOS'`)
+-   `pubkey` **[pubkey](#pubkey)** like RSNKey..
+-   `pubkey_prefix` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**  (optional, default `'RSN'`)
 
 #### Examples
 
@@ -238,7 +245,7 @@ Recover the public key used to create the signature.
 
 #### Parameters
 
--   `signature` **([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Buffer](https://nodejs.org/api/buffer.html))** (EOSbase58sig.., Hex, Buffer)
+-   `signature` **([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Buffer](https://nodejs.org/api/buffer.html))** (RSNbase58sig.., Hex, Buffer)
 -   `data` **([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Buffer](https://nodejs.org/api/buffer.html))** full data
 -   `encoding` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** data encoding (if data is a string) (optional, default `'utf8'`)
 
@@ -254,7 +261,7 @@ Returns **[pubkey](#pubkey)**
 
 #### Parameters
 
--   `signature` **([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Buffer](https://nodejs.org/api/buffer.html))** (EOSbase58sig.., Hex, Buffer)
+-   `signature` **([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Buffer](https://nodejs.org/api/buffer.html))** (RSNbase58sig.., Hex, Buffer)
 -   `dataSha256` **([String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Buffer](https://nodejs.org/api/buffer.html))** sha256 hash 32 byte buffer or hex string
 -   `encoding` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** dataSha256 encoding (if dataSha256 is a string) (optional, default `'hex'`)
 
@@ -282,14 +289,14 @@ Returns **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ## pubkey
 
-EOSKey..
+RSNKey..
 
 Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
 
 # Usage (Object API)
 
 ```js
-let {PrivateKey, PublicKey, Signature, Aes, key_utils, config} = require('eosjs-ecc')
+let {PrivateKey, PublicKey, Signature, Aes, key_utils, config} = require('@arisensdk/ecc')
 
 // Create a new random private key
 let privateWif
@@ -309,20 +316,20 @@ pubkey = PrivateKey.fromString(privateWif).toPublic().toString()
 # Browser
 
 ```bash
-git clone https://github.com/EOSIO/eosjs-ecc.git
-cd eosjs-ecc
+git clone https://github.com/arisensdk/ecc.git
+cd @arisensdk/ecc
 yarn
 yarn build_browser
-# builds: ./dist/eosjs-ecc.js
+# builds: ./dist/arisensdk-ecc.js
 # Verify release hash
 ```
 
 ```html
-<script src=eosjs-ecc.js></script>
+<script src=arisensdk-ecc.js></script>
 ```
 
 ```js
-var ecc = eosjs_ecc
+var ecc = arisensdk_ecc
 
 ecc.randomKey().then(privateWif =>  {
   var pubkey = ecc.privateToPublic(privateWif)
