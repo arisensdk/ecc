@@ -17,10 +17,12 @@ describe('Object API', () => {
     })
 
     it('private to public', () => {
+      const pvt = PrivateKey('5K3pTseZLU5FY3Rjonu8qxYxBSg9FV8AN96N9K2DidQgmQiCsDZ')
+      const pub = pvt.toPublic()
       assert.equal(
         pub.toString(),
         // 'PUB_K1_6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5BoDq63',
-        'EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV',
+        'RSN6XXyAWuqQCGquqfKhkAwc2kjzpYzBxHV7s3Wc8LZJd5RbnnRwa',
         'pub.toString'
       )
     })
